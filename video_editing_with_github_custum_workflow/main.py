@@ -40,9 +40,9 @@ parser.add_argument("--urls", type=str, default=None, help="video URL links as '
 parser.add_argument("--intro", type=str, default=None, help="Path to intro video file directory")
 parser.add_argument("--outro", type=str, default=None, help="Path to outro video file directory")
 parser.add_argument("--output", type=str, default="output.mp4", help="Name of the output file")
-parser.add_argument("--tokenjson", type=str, default=None, help="Full token Json file as String")
-parser.add_argument("--clientjson", type=str, default=None, help="Full client Json file as String")
-parser.add_argument("--scopes", type=str, default=None, help="Full client Json file as String") # or add them as org secr or default
+# parser.add_argument("--tokenjson", type=str, default=None, help="Full token Json file as String")
+# parser.add_argument("--clientjson", type=str, default=None, help="Full client Json file as String")
+# parser.add_argument("--scopes", type=str, default=None, help="Full client Json file as String") # or add them as org secr or default
 parser.add_argument("--gh_token", type=str, default=None, help="Your Github Token <Prefer Classic>") # or add them as org secr or default
 # owner + repo
 parser.add_argument("--owner_repo", type=str, default=None, help="Your Github Username + Repository Name") 
@@ -53,28 +53,28 @@ parser.add_argument("--tag", type=str, default=None, help="Your Github Artifacts
 
 args = parser.parse_args()
 
-client_secrets_file = "client_secret.json"
-tokenjson = "token.json"
+# client_secrets_file = "client_secret.json"
+# tokenjson = "token.json"
 
 
-# # save Scopes
-str_scope_list = args.scopes
-scopes = ast.literal_eval(str_scope_list)
+# # # save Scopes
+# str_scope_list = args.scopes
+# scopes = ast.literal_eval(str_scope_list)
 
 
-with open(tokenjson, 'w') as f:
-    json.dump(json.loads(args.tokenjson), f)
+# with open(tokenjson, 'w') as f:
+#     json.dump(json.loads(args.tokenjson), f)
 
-token_file = os.path.join(os.getcwd(), tokenjson)
-# path in env  saved 
-token_file_path = os.path.abspath(token_file)
+# token_file = os.path.join(os.getcwd(), tokenjson)
+# # path in env  saved 
+# token_file_path = os.path.abspath(token_file)
 
 
-with open(client_secrets_file, 'w') as f:
-    json.dump(json.loads(args.clientjson), f)
-client_secrets_file_file = os.path.join(os.getcwd(), client_secrets_file)
-# path in env  saved 
-client_secrets_file_path = os.path.abspath(client_secrets_file_file)
+# with open(client_secrets_file, 'w') as f:
+#     json.dump(json.loads(args.clientjson), f)
+# client_secrets_file_file = os.path.join(os.getcwd(), client_secrets_file)
+# # path in env  saved 
+# client_secrets_file_path = os.path.abspath(client_secrets_file_file)
 
 
 # Download and validate the videos
